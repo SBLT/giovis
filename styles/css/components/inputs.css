@@ -1,0 +1,38 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.input {
+  padding: 0.7rem 0.6rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  gap: 0.5rem;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+          box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+  background-color: #fdfefe;
+}
+.input:focus-within {
+  -webkit-box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+          box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+}
+.input[state=is-error] {
+  -webkit-box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+          box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+}
+.input > input {
+  width: 100%;
+  background-color: unset;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}

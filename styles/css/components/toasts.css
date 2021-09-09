@@ -1,0 +1,40 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.toast {
+  max-width: 20rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5rem 0.5rem 1fr;
+  grid-template-columns: 1.5rem 1fr;
+  place-items: center;
+  gap: 0.5rem;
+  background-color: #27ae60;
+  color: #fdfefe;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.toast[is-icon=false] {
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+}
+.toast[variant=error] {
+  background-color: #e74c3c;
+}
+.toast[variant=info] {
+  background-color: #3498db;
+}
+.toast[variant=warning] {
+  background-color: #f39c12;
+}

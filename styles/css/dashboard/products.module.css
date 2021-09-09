@@ -1,0 +1,378 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.section {
+  position: relative;
+  height: 100%;
+  padding: 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: scroll;
+}
+
+.middle {
+  position: relative;
+  height: 100%;
+  padding: 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: scroll;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.middle > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  background-color: #fdfefe;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.header > div:first-child {
+  width: 20rem;
+}
+.header > div:not(:first-child) {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header > button:first-of-type span[class*=icon] {
+  width: 1rem;
+}
+.header > [class*=button] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.filters {
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+  margin: 1rem 0 0;
+}
+.filters::after {
+  content: "\a";
+  white-space: pre;
+}
+.filters > div {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  padding: 0.25rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #626567;
+}
+.filters > div label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.filters > div > div {
+  display: -ms-grid;
+  display: grid;
+  gap: 0.25rem;
+}
+.filters > div > div[disabled] {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.table {
+  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fdfefe;
+}
+.table article {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -ms-grid-columns: 2fr 3fr 3fr 3fr 2fr 3fr 2fr;
+  grid-template-columns: 2fr 3fr 3fr 3fr 2fr 3fr 2fr;
+  font-size: 0.85rem;
+}
+.table article:not(:last-child) {
+  border-bottom: 1px solid #d0d3d4;
+}
+.table article[role=header], .table article:hover {
+  background-color: #f7f9f9;
+}
+.table article[role=header] {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #17202a;
+}
+.table article > * {
+  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+.table article img {
+  width: 100%;
+}
+.table article > *:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.table article > *:last-child > button,
+.table article > *:last-child > a {
+  margin: 0;
+}
+.table article > *:last-child > button span,
+.table article > *:last-child > a span {
+  width: 1.1rem;
+}
+
+.form {
+  width: 20rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.8rem;
+}
+.form > input {
+  display: none;
+}
+.form button,
+.form a {
+  margin: auto;
+  padding: 0.6rem 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form button[role=save], .form button[role=upload],
+.form a[role=save],
+.form a[role=upload] {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.form button[role=upload],
+.form a[role=upload] {
+  font-size: 0.8rem;
+}
+.form button[role=save]::before,
+.form a[role=save]::before {
+  background: -webkit-gradient(linear, left top, right top, from(#6cb7ff), to(#7985ff));
+  background: linear-gradient(90deg, #6cb7ff 0%, #7985ff 100%);
+}
+.form > div {
+  width: 100%;
+}
+.form > div[role=amount] {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.8rem 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+.form > div[role=sizes] {
+  margin-bottom: 1rem;
+}
+
+.update,
+.delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.5rem;
+  color: #797d7f;
+}
+.update * :not(button),
+.delete * :not(button) {
+  margin: 0;
+  padding: 0;
+}
+.update > header,
+.delete > header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.update > header > button,
+.delete > header > button {
+  background-color: unset;
+  border: none;
+  outline: none;
+  color: rgba(87, 144, 255, 0.8);
+  cursor: pointer;
+}
+.update > header > button[disabled],
+.delete > header > button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+.update > header > button:hover,
+.delete > header > button:hover {
+  color: #5790ff;
+}
+.update > header > button > span,
+.delete > header > button > span {
+  width: 1.7rem;
+}
+.update > article,
+.delete > article {
+  max-width: 28rem;
+  padding: 0.75rem 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #a6acaf;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 0.5rem;
+}
+.update > article span,
+.delete > article span {
+  margin: 0 0.25rem;
+  font-weight: 500;
+}
+.update > span,
+.delete > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #797d7f;
+}
+.update > footer,
+.delete > footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 0.5rem;
+}
+.update > footer button,
+.delete > footer button {
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  border: 0.1rem solid transparent;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.6;
+  position: relative;
+  cursor: pointer;
+  color: #fdfefe;
+  background-color: #5790ff;
+}
+.update > footer button[disabled],
+.delete > footer button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+.update > footer button:first-of-type,
+.delete > footer button:first-of-type {
+  background-color: transparent;
+  color: #5790ff;
+  border-color: #5790ff;
+}
+.update > footer button:first-of-type:hover,
+.delete > footer button:first-of-type:hover {
+  background-color: rgba(87, 144, 255, 0.1);
+}
+
+.delete > header > button {
+  color: rgba(245, 54, 73, 0.8);
+}
+.delete > header > button:hover {
+  color: #f53649;
+}
+.delete > article {
+  background-color: rgba(245, 54, 73, 0.1);
+  color: #f53649;
+}
+.delete > footer button {
+  background-color: #f53649;
+}
+.delete > footer button:first-of-type {
+  color: #f53649;
+  border-color: #f53649;
+}
+.delete > footer button:first-of-type:hover {
+  background-color: rgba(245, 54, 73, 0.1);
+}

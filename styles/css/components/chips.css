@@ -1,0 +1,66 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  padding: 0.7rem 0.6rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+          box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+  background-color: #fdfefe;
+}
+.chips:focus-within {
+  -webkit-box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+          box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+}
+.chips[state=is-error] {
+  -webkit-box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+          box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+}
+.chips[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+.chips > .chip {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 1rem;
+  background-color: #d6eaf8;
+  color: #2874a6;
+  font-size: 0.8rem;
+}
+.chips > .chip > span {
+  width: 0.6rem;
+  pointer-events: all;
+  color: #1b4f72;
+}
+.chips > input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: unset;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}

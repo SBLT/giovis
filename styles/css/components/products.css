@@ -1,0 +1,167 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.product {
+  --color-green: #46be80;
+  width: calc(100vw - 2rem);
+  max-width: 15rem;
+  overflow: hidden;
+  background-color: #fdfefe;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(208, 211, 212, 0.6);
+  cursor: pointer;
+}
+.product:hover {
+  -webkit-box-shadow: 0 3px 18px rgba(44, 62, 80, 0.2);
+          box-shadow: 0 3px 18px rgba(44, 62, 80, 0.2);
+  --color-green: #00a650;
+}
+.product:hover > header > button {
+  opacity: 1;
+}
+.product > header {
+  width: 15rem;
+  height: 15rem;
+  border-bottom: 1px solid rgba(208, 211, 212, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+.product > header > img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product > header > button {
+  position: absolute;
+  cursor: pointer;
+  top: 1rem;
+  right: 1rem;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  background-color: unset;
+  border: none;
+  outline: none;
+  color: #3498db;
+}
+.product > header > button > span {
+  width: 1.3rem;
+}
+.product > header > button:hover {
+  color: #2e86c1;
+}
+.product > div {
+  padding: 1.25rem;
+  display: -ms-grid;
+  display: grid;
+  gap: 0.5rem;
+}
+.product > div > div {
+  width: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 0.25rem;
+     -moz-column-gap: 0.25rem;
+          column-gap: 0.25rem;
+}
+.product > div > div span[role=amount] {
+  width: 100%;
+  color: #979a9a;
+  font-size: 0.75rem;
+  text-decoration: line-through;
+}
+.product > div > div span[role=fraction] {
+  font-size: 1.2rem;
+  color: #616a6b;
+}
+.product > div > div span[role=discount] {
+  color: var(--color-green);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+.product > div > h2 {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #424949;
+  text-align: justify;
+  line-height: 1rem;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.product > div > ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.25rem;
+     -moz-column-gap: 0.25rem;
+          column-gap: 0.25rem;
+  row-gap: 0.25rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+.product > div > ul > p {
+  width: 100%;
+  color: var(--color-green);
+}
+.product > div > ul > li {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0.25rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 0.1rem solid #d0d3d4;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.product > div > ul > li:not(.product > div > ul > li[state*=is-selected]):hover {
+  background-color: #f0f3f4;
+  -webkit-box-shadow: 0 0.15rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.15rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+}
+.product > div > ul > li[state*=is-selected] {
+  border: 0.125rem solid #1b2631;
+}
+.product > div > ul > button {
+  margin: 0;
+  margin-left: auto;
+}
+.product > div > ul > button > span {
+  width: 1rem;
+}

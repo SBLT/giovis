@@ -1,0 +1,52 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.icon {
+  width: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+}
+.icon > svg {
+  width: 100%;
+  stroke: currentColor;
+}
+.icon > svg > * {
+  stroke: currentColor;
+}
+.icon[icon-style=bold] > svg, .icon[icon-style=broken] > svg {
+  fill: currentColor;
+  stroke: none;
+}
+.icon[icon-style=bold] > svg > *, .icon[icon-style=broken] > svg > * {
+  fill: currentColor;
+  stroke: none;
+}
+.icon[badge-variant*=dot]::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0.15rem solid #fdfefe;
+  border-radius: 50%;
+  background-color: #e74c3c;
+}

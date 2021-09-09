@@ -1,0 +1,203 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  -ms-grid-columns: auto 1fr;
+      grid-template: "sidebar header" auto "sidebar main" 1fr/auto 1fr;
+}
+
+.sidebar {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: sidebar;
+  padding: 0.75rem 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4c8deb), to(#4c60eb));
+  background: linear-gradient(180deg, #4c8deb 0%, #4c60eb 100%);
+  color: #fdfefe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 1.5rem;
+}
+.sidebar a,
+.sidebar button {
+  outline: none;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: transparent;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0.75rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.sidebar a:hover, .sidebar a[state=is-active],
+.sidebar button:hover,
+.sidebar button[state=is-active] {
+  background-color: rgba(35, 80, 188, 0.3);
+}
+.sidebar > nav {
+  margin-bottom: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.5rem;
+}
+.sidebar > nav::before {
+  display: block;
+  content: "";
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fdfefe;
+  border-radius: 50%;
+}
+
+.header {
+  padding: 0.75rem 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fdfefe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header > nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  color: #85c1e9;
+}
+
+.avatar {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.1rem;
+  border-radius: 50%;
+}
+
+.username {
+  font-weight: 600;
+  color: #273746;
+}
+
+.setup {
+  padding: 0.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.setup > hr {
+  border: none;
+  height: 1px;
+  background-color: #d0d3d4;
+}
+.setup > :not(hr) {
+  width: 21rem;
+  max-height: 90vh;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background-color: unset;
+  color: #273746;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.setup > :not(hr):hover {
+  background-color: #f0f3f4;
+}
+.setup > :not(hr) span {
+  width: 1.4rem;
+}
+
+.setup_avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  width: 24rem;
+}
+.setup_avatar > img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.setup_avatar > span {
+  min-width: 3rem;
+}
+.setup_avatar > div {
+  color: #17202a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.setup_avatar > div > span {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #909497;
+}
+
+.content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: main;
+  overflow: auto;
+  background-color: #f8f9f9;
+}

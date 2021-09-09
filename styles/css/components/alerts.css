@@ -1,0 +1,28 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.alert {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-color: rgba(44, 62, 80, 0.6);
+}
+.alert > div {
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  overflow-y: auto;
+  background-color: #fdfefe;
+  border-radius: 0.25rem;
+}

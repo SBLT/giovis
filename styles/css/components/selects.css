@@ -1,0 +1,103 @@
+/*
+ * Map-color
+ * Possible cases verification
+ * Return color 
+*/
+/*
+ * Color
+ * Possible cases verification
+ * Return color by applying opacity
+*/
+.select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  font-size: 0.9rem;
+}
+.select option, .select span {
+  text-transform: lowercase;
+}
+.select option::first-letter, .select span::first-letter {
+  text-transform: uppercase;
+}
+.select > header {
+  width: 100%;
+  padding: 0.7rem 0.6rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+          box-shadow: 0 0 0 0.08rem #d0d3d4, 0 0 0 0.225rem transparent;
+  background-color: #fdfefe;
+  color: #7b7d7d;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+  grid-template-columns: 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.select > header span[class*=icon] {
+  width: 0.9rem;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: -webkit-transform ease 0.25s;
+  transition: -webkit-transform ease 0.25s;
+  transition: transform ease 0.25s;
+  transition: transform ease 0.25s, -webkit-transform ease 0.25s;
+}
+.select > div {
+  width: 100%;
+  list-style: none;
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 2;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0.25rem;
+  border: 0.05rem solid #d0d3d4;
+  background-color: #fdfefe;
+}
+.select > div > option {
+  padding: 0.5rem 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #273746;
+  cursor: pointer;
+}
+.select > div > option:hover {
+  background-color: #f0f3f4;
+}
+.select > div > option[value*=default] {
+  display: none;
+}
+.select > div > option[state=is-selected] {
+  color: #3498db;
+}
+.select[state*=is-open] > header {
+  -webkit-box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+          box-shadow: 0 0 0 0.08rem #3498db, 0 0 0 0.25rem rgba(174, 214, 241, 0.8);
+}
+.select[state*=is-open] > header span[class*=icon] {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.select[state*=is-open] > div {
+  display: block;
+}
+.select[state*=is-error] > header {
+  -webkit-box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+          box-shadow: 0 0 0 0.08rem #e74c3c, 0 0 0 0.25rem rgba(245, 183, 177, 0.8);
+}

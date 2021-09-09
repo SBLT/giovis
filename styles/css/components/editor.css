@@ -1,0 +1,38 @@
+#editorjs {
+  height: 100%;
+}
+#editorjs .codex-editor {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+}
+#editorjs .cdx-settings-button svg {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+#editorjs .ce-settings__button svg {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+#editorjs .ce-toolbar__settings-btn,
+#editorjs .ce-toolbar__plus svg {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+#editorjs .cdx-checklist__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.25rem;
+}
+#editorjs .cdx-checklist__item-checkbox {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  margin-right: 0;
+}
+#editorjs .codex-editor__redactor {
+  padding-bottom: 4rem !important;
+}
