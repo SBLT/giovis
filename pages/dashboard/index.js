@@ -221,9 +221,7 @@ const Notifications = ({ orders }) => {
                 <div>
                   <p>
                     Pedido <span>#{order?.data?.id}</span>
-                    {!users[order?.data?.user?.uid]
-                      ? ""
-                      : "[Usuario ya no activo]"}
+                    {!users[order?.data?.user?.uid] ? " [Eliminado...]" : ""}
                   </p>
                   <p>
                     {`${order?.time?.day?.id} de ${order?.time?.month?.name} del ${order?.time?.year?.int} a las ${order?.time?.hour}:${order?.time?.minutes}`}
@@ -320,8 +318,8 @@ const Notifications = ({ orders }) => {
                     Cancelar
                   </Button>
 
-                  {order?.data?.delivered &&
-                  users[order?.data?.user?.uid] ? null : (
+                  {!users[order?.data?.user?.uid] ? null : order?.data
+                      ?.delivered ? null : (
                     <Button onClick={() => deliver(order?.data?.id)}>
                       Pedido entregado
                     </Button>

@@ -4,6 +4,7 @@ import Icon from "components/icons";
 import avatarcss from "@css/web/layout.module.css";
 import Link from "components/links";
 import { auth, db } from "db/firebase";
+import firebase from "firebase/app";
 import Portal from "components/portals";
 import Button from "components/buttons";
 import { useEffect, useRef, useState } from "react";
@@ -45,7 +46,7 @@ export default function HeaderSetup() {
           .delete()
           .then(() => {
             // Delete user
-            const crr_user = auth?.currentUser;
+            const crr_user = firebase?.auth()?.currentUser;
 
             if (crr_user) {
               crr_user
