@@ -32,7 +32,12 @@ export default function HeaderSetup() {
     // Delete user cart
     db.collection("carts")
       .where("uid", "==", user.uid)
-      .delete()
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          doc.ref.delete();
+        });
+      })
       .then(() => {
         // Delet user settings
         db.collection("users")
