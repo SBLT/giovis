@@ -513,7 +513,7 @@ const Orders = ({ quest }) => {
   }, [user]);
 
   useEffect(() => {
-    if (width <= 970) return router.push("/mis-pedidos");
+    if (quest) return router.push("/mis-pedidos");
   }, [width]);
 
   return (
