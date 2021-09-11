@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { auth, db, googleProvider } from "db/firebase";
 import useWindowSize from "hooks/useWindowSize";
 import Portal from "components/portals";
+import { toast } from "components/toasts";
 
 export default function HeaderAuth() {
   const { width } = useWindowSize();
@@ -76,25 +77,78 @@ export default function HeaderAuth() {
 
   const signInOrSignUp = () => {
     if (inputState?.email?.value == "" && inputState?.password?.value == "") {
-      return console.log("!Ups! Debe completar todos los campos");
+      setInputState({
+        ...inputState,
+        email: { ...inputState.email, error: true },
+        password: { ...inputState.password, error: true },
+      });
+
+      return toast({
+        value: "!Ups! Debe completar todos los campos",
+        type: "error",
+      });
     }
 
     if (inputState?.email?.value == "") {
-      return console.log("!Ups! Olvidó el email");
+      setInputState({
+        ...inputState,
+        email: { ...inputState.email, error: true },
+      });
+
+      return toast({
+        value: "!Ups! Olvidó incluir el email",
+        type: "error",
+      });
     }
 
     if (inputState?.password?.value == "") {
-      return console.log("!Ups! Ya pe' mano. Y la contra?");
+      setInputState({
+        ...inputState,
+        password: { ...inputState.password, error: true },
+      });
+
+      return toast({
+        value: "!Ups! Olvidó incluir la contraseña",
+        type: "error",
+      });
     }
 
     if (!regex?.email?.test(inputState?.email?.value)) {
-      return console.log("Chanfle! Cómo es que no recuerdas tu email");
+      setInputState({
+        ...inputState,
+        email: { ...inputState.email, error: true },
+      });
+
+      toast({
+        value: "!Ups! El email que ha ingresado no es válido",
+        type: "error",
+      });
+
+      return setTimeout(() => {
+        return toast({
+          value: "ejemplo@gmail.com",
+          type: "info",
+        });
+      }, 2000);
     }
 
     if (!regex?.password?.test(inputState?.password?.value)) {
-      return console.log(
-        "🎵 Ese compa ya está muerto! No se acuerda la contra dice!"
-      );
+      setInputState({
+        ...inputState,
+        password: { ...inputState.password, error: true },
+      });
+
+      toast({
+        value: "!Ups! La contraseña que ha ingresado no es válido",
+        type: "error",
+      });
+
+      return setTimeout(() => {
+        return toast({
+          value: "Su contraseña debe incluir mayúsculas, minúsculas y números",
+          type: "info",
+        });
+      }, 2000);
     }
 
     if (authAction === "signin") {

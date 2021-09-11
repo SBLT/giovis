@@ -31,7 +31,17 @@ export default function Product(props) {
   const toggleFav = (e) => {
     e.target.style.transform = "scale(1.1)";
 
-    if (user?.role == "administrador") return;
+    if (user?.role == "administrador") {
+      setTimeout(() => {
+        e.target.style.transform = "";
+      }, 100);
+
+      return toast({
+        value: "El administrador no puede guardar favoritos",
+        type: "warning",
+      });
+    }
+
     if (!user?.email) {
       toast({
         value: "Necesita iniciar sesión para acceder a esta opción",
