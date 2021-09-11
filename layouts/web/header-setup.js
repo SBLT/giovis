@@ -29,38 +29,50 @@ export default function HeaderSetup() {
   };
 
   const deleteAccount = () => {
-    // Delet user settings
-    db.collection("users")
+    // Delete user cart
+    db.collection("carts")
       .doc(user.uid)
       .delete()
       .then(() => {
-        // Delete user
-        auth.currentUser
+        // Delet user settings
+        db.collection("users")
+          .doc(user.uid)
           .delete()
           .then(() => {
-            toast({
-              value: "Tu cuenta a sido eleminada satisfatoriamente",
-            });
+            // Delete user
+            auth.currentUser
+              .delete()
+              .then(() => {
+                toast({
+                  value: "Tu cuenta a sido eleminada satisfatoriamente",
+                });
+              })
+              .catch((error) => {
+                switch (error.code) {
+                  case "auth/requires-recent-login":
+                    toast({
+                      value: "Oh! A ocurrido un error inesperado",
+                      type: "error",
+                    });
+
+                    setTimeout(() => {
+                      toast({
+                        type: "info",
+                        value: "Vuelve a iniciar sesión e intenta de nuevo",
+                      });
+                    }, 2000);
+                    break;
+                  default:
+                    console.log(error);
+                    break;
+                }
+              });
           })
           .catch((error) => {
-            switch (error.code) {
-              case "auth/requires-recent-login":
-                toast({
-                  value: "Oh! A ocurrido un error inesperado",
-                  type: "error",
-                });
-
-                setTimeout(() => {
-                  toast({
-                    type: "info",
-                    value: "Vuelve a iniciar sesión e intenta de nuevo",
-                  });
-                }, 2000);
-                break;
-              default:
-                console.log(error);
-                break;
-            }
+            console.error(error);
+            return toast({
+              value: "Oh! A ocurrido un error inesperador. Inténtalo de nuevo",
+            });
           });
       })
       .catch((error) => {
