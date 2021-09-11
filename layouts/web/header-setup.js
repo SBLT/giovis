@@ -45,33 +45,37 @@ export default function HeaderSetup() {
           .delete()
           .then(() => {
             // Delete user
-            auth.currentUser
-              .delete()
-              .then(() => {
-                toast({
-                  value: "Tu cuenta a sido eleminada satisfatoriamente",
-                });
-              })
-              .catch((error) => {
-                switch (error.code) {
-                  case "auth/requires-recent-login":
-                    toast({
-                      value: "Oh! A ocurrido un error inesperado",
-                      type: "error",
-                    });
+            const crr_user = auth?.currentUser;
 
-                    setTimeout(() => {
+            if (crr_user) {
+              crr_user
+                .delete()
+                .then(() => {
+                  toast({
+                    value: "Tu cuenta a sido eleminada satisfatoriamente",
+                  });
+                })
+                .catch((error) => {
+                  switch (error.code) {
+                    case "auth/requires-recent-login":
                       toast({
-                        type: "info",
-                        value: "Vuelve a iniciar sesión e intenta de nuevo",
+                        value: "Oh! A ocurrido un error inesperado",
+                        type: "error",
                       });
-                    }, 2000);
-                    break;
-                  default:
-                    console.log(error);
-                    break;
-                }
-              });
+
+                      setTimeout(() => {
+                        toast({
+                          type: "info",
+                          value: "Vuelve a iniciar sesión e intenta de nuevo",
+                        });
+                      }, 2000);
+                      break;
+                    default:
+                      console.log(error);
+                      break;
+                  }
+                });
+            }
           })
           .catch((error) => {
             console.error(error);
