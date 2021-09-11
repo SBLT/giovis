@@ -31,7 +31,7 @@ export default function HeaderSetup() {
   const deleteAccount = () => {
     // Delete user cart
     db.collection("carts")
-      .doc(user.uid)
+      .where("uid", "==", user.uid)
       .delete()
       .then(() => {
         // Delet user settings
@@ -72,6 +72,7 @@ export default function HeaderSetup() {
             console.error(error);
             return toast({
               value: "Oh! A ocurrido un error inesperador. Inténtalo de nuevo",
+              type: "error",
             });
           });
       })
@@ -79,6 +80,7 @@ export default function HeaderSetup() {
         console.error(error);
         return toast({
           value: "Oh! A ocurrido un error inesperador. Inténtalo de nuevo",
+          type: "error",
         });
       });
   };
