@@ -432,7 +432,7 @@ const Search = ({ quest }) => {
 
 const Orders = ({ quest }) => {
   const { user } = useAuth();
-  const { width } = useWindowSize();
+  const { width, before } = useWindowSize();
   const router = useRouter();
   const order_list = useRef(null);
 
@@ -513,7 +513,12 @@ const Orders = ({ quest }) => {
   }, [user]);
 
   useEffect(() => {
-    if (quest) return router.push("/mis-pedidos");
+    if (
+      (width <= 970 && before.width > 970) ||
+      (width > 970 && before.width <= 970)
+    ) {
+      return router.push("/mis-pedidos");
+    }
   }, [width]);
 
   return (
