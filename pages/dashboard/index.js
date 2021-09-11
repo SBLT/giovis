@@ -220,8 +220,8 @@ const Notifications = ({ orders }) => {
               <div>
                 <div>
                   <p>
-                    Pedido <span>#{order?.data?.id}</span>{" "}
-                    {!users[order?.data?.user?.uid]?.["email"]
+                    Pedido <span>#{order?.data?.id}</span>
+                    {!users[order?.data?.user?.uid]
                       ? ""
                       : "[Usuario ya no activo]"}
                   </p>
@@ -321,7 +321,7 @@ const Notifications = ({ orders }) => {
                   </Button>
 
                   {order?.data?.delivered &&
-                  users[order?.data?.user?.uid]?.["email"] ? null : (
+                  users[order?.data?.user?.uid] ? null : (
                     <Button onClick={() => deliver(order?.data?.id)}>
                       Pedido entregado
                     </Button>
