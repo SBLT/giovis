@@ -252,7 +252,11 @@ const Item = ({ route, routes, type, list, parent, ...rest }) => {
     e.preventDefault();
     const url = toURL(data.value?.trim());
 
-    if (url == "/" || url == route?.path) {
+    if (
+      url == "/" ||
+      url == route?.path ||
+      route?.routes?.filter((route) => route.path == url)?.length > 0
+    ) {
       setData({ value: route?.value, error: false });
       setNeedsToUpdated(false);
 
