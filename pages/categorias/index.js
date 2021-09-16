@@ -255,7 +255,7 @@ const Item = ({ route, routes, type, list, parent, ...rest }) => {
     if (
       url == "/" ||
       url == route?.path ||
-      route?.routes?.filter((route) => route.path == url)?.length > 0
+      parent?.routes?.filter((route) => route.path == url)?.length > 0
     ) {
       setData({ value: route?.value, error: false });
       setNeedsToUpdated(false);
