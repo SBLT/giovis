@@ -242,6 +242,25 @@ const Item = ({ route, routes, type, list, parent, ...rest }) => {
   const handleNameChange = (e) => {
     const { value } = e.target;
     if (value[0] == " " || value.length > 40) return;
+
+    let isRepeated = false;
+    if (type == "subpage") {
+      isRepeated =
+        parent?.routes?.filter((route) => route.path == toURL(value?.trim()))
+          ?.length > 0;
+    } else {
+      isRepeated =
+        parent?.filter((route) => route.path == toURL(value?.trim()))?.length >
+        0;
+    }
+
+    if (isRepeated) {
+      return setData({
+        value: capitalize(value?.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")),
+        error: true,
+      });
+    }
+
     setData({
       value: capitalize(value?.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "")),
       error: value?.length === 0,
@@ -252,11 +271,15 @@ const Item = ({ route, routes, type, list, parent, ...rest }) => {
     e.preventDefault();
     const url = toURL(data.value?.trim());
 
-    if (
-      url == "/" ||
-      url == route?.path ||
-      parent?.routes?.filter((route) => route.path == url)?.length > 0
-    ) {
+    let isRepeated = false;
+    if (type == "subpage") {
+      isRepeated =
+        parent?.routes?.filter((route) => route.path == url)?.length > 0;
+    } else {
+      isRepeated = parent?.filter((route) => route.path == url)?.length > 0;
+    }
+
+    if (url == "/" || url == route?.path || isRepeated) {
       setData({ value: route?.value, error: false });
       setNeedsToUpdated(false);
 
