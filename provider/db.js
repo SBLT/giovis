@@ -11,7 +11,6 @@ export function DBProvider({ children }) {
   const [ordersOnDB, setOrdersOnDB] = useState([]);
   const [cartsOnDB, setCartsOnDB] = useState([]);
   const [imagesOnDB, setImagesOnDB] = useState([]);
-  const [faq, setFaq] = useState([]);
   const [routes, setRoutes] = useState([]);
 
   // Correctly formatted images
@@ -176,33 +175,6 @@ export function DBProvider({ children }) {
     return () => unsubscribe();
   }, []);
 
-  useEffect(() => {
-    const unsubscribe = db
-      .collection("faq")
-      .orderBy("timestamp")
-      .onSnapshot(
-        (querySnapshot) => {
-          let hits = [];
-
-          querySnapshot.forEach((doc) => {
-            hits.push({
-              ...doc.data(),
-              id: doc.id,
-              time: +doc.data()?.timestamp?.toDate(),
-            });
-          });
-
-          setFaq(hits);
-        },
-        (err) => {
-          setFaq([]);
-          console.log("Error al cargar los productos: " + err);
-        }
-      );
-
-    return () => unsubscribe();
-  }, []);
-
   // Format
   useEffect(() => {
     let formatted = ordersOnDB.map((order) => {
@@ -262,7 +234,6 @@ export function DBProvider({ children }) {
     orders,
     carts,
     previews: imagesOnDB,
-    faqs: faq,
     routes,
   };
 
