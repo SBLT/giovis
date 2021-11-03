@@ -267,8 +267,6 @@ export default function HeaderAuth() {
                       Registrarse gratis
                     </button>
                   </p>
-
-                  <!-- <a href="">¿Olvidaste tu contraseña?</a>-->
                 </>
               )}
 
