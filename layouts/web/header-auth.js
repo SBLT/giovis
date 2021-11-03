@@ -268,7 +268,7 @@ export default function HeaderAuth() {
                     </button>
                   </p>
 
-                  <a href="">¿Olvidaste tu contraseña?</a>
+                  <!-- <a href="">¿Olvidaste tu contraseña?</a>-->
                 </>
               )}
 
